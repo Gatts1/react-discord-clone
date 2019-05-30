@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "@emotion/styled";
+
+import AppName from "./AppName";
+import Channels from "./Channels";
+import Header from "./Header";
+import ListMessages from "./ListMessages";
+import NewMessage from "./NewMessage";
+
+const Container = styled.div`
+  display: grid;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  grid-template: 48px 1fr 65px/ 300px 1fr;
+  grid-template-areas:
+    /* "pos1-1 pos1-2" */
+    "app-name header"
+    "channels list-message"
+    "channels new-message";
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <AppName />
+      <Header />
+      <Channels />
+      <ListMessages />
+      <NewMessage />
+    </Container>
   );
 }
 
