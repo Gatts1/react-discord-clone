@@ -16,7 +16,6 @@ const Container = styled.div`
   font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
   grid-template: 48px 1fr 65px/ 300px 1fr;
   grid-template-areas:
-    /* "pos1-1 pos1-2" */
     "app-name header"
     "channels list-message"
     "channels new-message";
