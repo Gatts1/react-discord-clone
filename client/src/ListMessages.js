@@ -4,6 +4,7 @@ import { css } from "emotion";
 import BlockDate from "./BlockDate";
 import BlockNotification from "./BlockNotification";
 import BlockMessage from "./BlockMessage";
+import Scrollbar from "./Scrollbar";
 
 const container = css`
   grid-area: list-message;
@@ -34,7 +35,7 @@ const bTop = css`
 function ListMessages() {
   return (
     <section className={container}>
-      <div className={scrollbar}>
+      <Scrollbar height="calc(100vh - 66px - 48px - 5px)">
         <ul className={ul}>
           <BlockDate />
           <BlockNotification className={bTop} />
@@ -46,7 +47,7 @@ function ListMessages() {
           <BlockNotification className={bTop} />
           <BlockMessage className={bTop} />
         </ul>
-      </div>
+      </Scrollbar>
     </section>
   );
 }
