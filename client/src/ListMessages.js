@@ -46,7 +46,7 @@ function ListMessages({ messages, sendData }) {
           <BlockDate />
           <BlockNotification className={bTop} />
           <BlockMessage className={bTop} /> */}
-          {messages.map((message) => (
+          {messages.map(message => (
             <li>{message.content}</li>
           ))}
         </ul>
