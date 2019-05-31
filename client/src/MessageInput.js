@@ -24,7 +24,7 @@ const svgs = css`
   }
 `;
 
-function MessageInput() {
+function MessageInput({ sendData }) {
   return (
     <div className={container}>
       <svg id="btnPlus" className={svgs}>
@@ -33,7 +33,7 @@ function MessageInput() {
       <svg id="btnPlusCircle" className={svgs}>
         <use xlinkHref="#plus-circle" />
       </svg>
-      <WriteMessage />
+      <WriteMessage sendData={sendData} />
       <svg id="btnGift" className={svgs}>
         <use xlinkHref="#gift" />
       </svg>

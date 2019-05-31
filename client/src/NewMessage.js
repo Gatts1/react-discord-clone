@@ -9,10 +9,10 @@ const container = css`
   background-color: #36393f;
 `;
 
-function NewMessage() {
+function NewMessage({ sendData }) {
   return (
     <section className={container}>
-      <MessageInput />
+      <MessageInput sendData={sendData} />
     </section>
   );
 }
