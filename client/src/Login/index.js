@@ -49,7 +49,7 @@ const login = css`
   border-radius: 5px;
 `;
 
-function Login() {
+function Login({ setUser }) {
   return (
     <div className={layout}>
       <img src={bg} alt="background" className={background} />
@@ -60,7 +60,7 @@ function Login() {
         <GroupImage />
         <GroupTitle />
         <GroupActivity />
-        <Form />
+        <Form setUser={setUser} />
       </div>
     </div>
   );

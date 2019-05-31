@@ -70,15 +70,22 @@ const ButtonLogin = css`
   cursor: pointer;
 `;
 
-function Login() {
+function Login({ setUser }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(event.target.elements.username.value);
+    setUser(event.target.elements.username.value);
+  }
+
   return (
-    <form className={Form}>
+    <form className={Form} onSubmit={handleSubmit}>
       <span className={username}>USERNAME</span>
       <br />
       <input
         class={inputUsername}
         type="text"
         id="txtUsername"
+        name="username"
         placeholder="How do you want to be called?"
         title="You can change this later."
       />
