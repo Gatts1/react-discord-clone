@@ -32,12 +32,12 @@ const bTop = css`
   border-top: 1px solid hsla(0, 0%, 100%, 0.06);
 `;
 
-function ListMessages() {
+function ListMessages({ messages, sendData }) {
   return (
     <section className={container}>
       <Scrollbar height="calc(100vh - 66px - 48px - 5px)">
         <ul className={ul}>
-          <BlockDate />
+          {/* <BlockDate />
           <BlockNotification className={bTop} />
           <BlockMessage className={bTop} />
           <BlockDate />
@@ -45,7 +45,10 @@ function ListMessages() {
           <BlockMessage className={bTop} />
           <BlockDate />
           <BlockNotification className={bTop} />
-          <BlockMessage className={bTop} />
+          <BlockMessage className={bTop} /> */}
+          {messages.map((message) => (
+            <li>{message.content}</li>
+          ))}
         </ul>
       </Scrollbar>
     </section>
