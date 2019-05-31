@@ -32,7 +32,7 @@ function BlockNotification({ className }) {
           <use xlinkHref="#arrow-right" />
         </svg>
         <span className={message}>
-          Un <User /> salvaje apareció.
+          Un <User size="16px" /> salvaje apareció.
         </span>
         <Date />
       </li>

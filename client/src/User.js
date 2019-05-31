@@ -1,12 +1,12 @@
 import React from "react";
 import { css } from "emotion";
 
-function User() {
+function User({ size }) {
   return (
     <>
       <span
         className={css`
-          font-size: 16px;
+          font-size: ${size};
           color: #fff;
         `}
       >
