@@ -9,7 +9,13 @@ const container = css`
 function AppName() {
   return (
     <section className={container}>
-      <div>AppName</div>
+      <svg id="btnClose" onclick="showLeft()">
+        <use xlinkHref="#plus" />
+      </svg>
+      <p class="group-name">Codeable V. 1.0 Gate3</p>
+      <svg>
+        <use xlinkHref="#arrow" />
+      </svg>
     </section>
   );
 }
