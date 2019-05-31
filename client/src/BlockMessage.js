@@ -12,10 +12,10 @@ const container = css`
   padding: 20px 0;
 `;
 
-function BlockMessage() {
+function BlockMessage({ className }) {
   return (
     <>
-      <li className={container}>
+      <li className={`${container} ${className}`}>
         <UserImage />
         <MessageBody />
       </li>

@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-const line = css`
+const container = css`
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -15,7 +15,7 @@ const line = css`
   }
 `;
 
-const line_date = css`
+const lineDate = css`
   color: rgb(194, 205, 209);
   width: 300px;
   margin: 0 10px;
@@ -28,8 +28,8 @@ const line_date = css`
 function BlockDate() {
   return (
     <>
-      <li className={line}>
-        <span className={line_date}>23 de mayo de 2019</span>
+      <li className={container}>
+        <span className={lineDate}>23 de mayo de 2019</span>
       </li>
     </>
   );

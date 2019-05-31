@@ -4,18 +4,12 @@ import { css } from "emotion";
 import User from "./User";
 import Date from "./Date";
 
-const notification = css`
+const container = css`
   display: flex;
   flex-direction: row;
   align-content: center;
   align-items: center;
   padding: 20px 0;
-  /* ToDo: Why don't work the class child? */
-  /* &:first-child {
-    margin-left: 8px;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.6);
-  } */
 `;
 
 const message = css`
@@ -30,10 +24,10 @@ const svg = css`
   height: 18px;
 `;
 
-function BlockNotification() {
+function BlockNotification({ className }) {
   return (
     <>
-      <li className={notification}>
+      <li className={`${container} ${className}`}>
         <svg className={svg}>
           <use xlinkHref="#arrow-right" />
         </svg>

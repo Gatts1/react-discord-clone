@@ -5,7 +5,7 @@ import BlockDate from "./BlockDate";
 import BlockNotification from "./BlockNotification";
 import BlockMessage from "./BlockMessage";
 
-const section = css`
+const container = css`
   grid-area: list-message;
   background-color: #36393f;
 `;
@@ -27,26 +27,24 @@ const scrollbar = css`
   }
 `;
 
-// ToDo: How to add this class in block
-// const b_top = css`
-//   border-top: 1px solid hsla(0, 0%, 100%, 0.06);
-// `;
+const bTop = css`
+  border-top: 1px solid hsla(0, 0%, 100%, 0.06);
+`;
 
 function ListMessages() {
   return (
-    <section className={section}>
+    <section className={container}>
       <div className={scrollbar}>
         <ul className={ul}>
           <BlockDate />
-          <BlockNotification />
-          <BlockMessage />
-          <BlockNotification />
+          <BlockNotification className={bTop} />
+          <BlockMessage className={bTop} />
           <BlockDate />
-          <BlockNotification />
-          <BlockMessage />
-          <BlockMessage />
+          <BlockNotification className={bTop} />
+          <BlockMessage className={bTop} />
           <BlockDate />
-          <BlockMessage />
+          <BlockNotification className={bTop} />
+          <BlockMessage className={bTop} />
         </ul>
       </div>
     </section>

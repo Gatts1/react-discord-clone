@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "emotion";
 
-const className = css`
+const container = css`
   grid-area: app-name;
   background-color: green;
 `;
 
 function AppName() {
   return (
-    <section className={className}>
+    <section className={container}>
       <div>AppName</div>
     </section>
   );
