@@ -16,7 +16,7 @@ function BlockMessage({ className }) {
   return (
     <>
       <li className={`${container} ${className}`}>
-        <UserImage />
+        <UserImage size="45px;" />
         <MessageBody />
       </li>
     </>
