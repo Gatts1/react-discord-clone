@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import { css } from "emotion";
 
 import AppName from "./AppName";
 import Channels from "./Channels";
@@ -7,7 +7,7 @@ import Header from "./Header";
 import ListMessages from "./ListMessages";
 import NewMessage from "./NewMessage";
 
-const Container = styled.div`
+const container = css`
   display: grid;
   margin: 0;
   height: 100vh;
@@ -46,7 +46,7 @@ function App({ url = "ws://localhost:4000" }) {
         setConnected(false);
       };
       ws.current.onmessage = ({ data }) => {
-        setMessages((state) => {
+        setMessages(state => {
           return [...state, JSON.parse(data)];
         });
       };
@@ -64,13 +64,13 @@ function App({ url = "ws://localhost:4000" }) {
   }
 
   return (
-    <Container>
+    <div className={container}>
       <AppName />
       <Header />
       <Channels />
       <ListMessages messages={messages} />
       <NewMessage sendData={sendData} />
-    </Container>
+    </div>
   );
 }
 
