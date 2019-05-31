@@ -20,15 +20,23 @@ const hiddenSubmit = css`
   display: none;
 `;
 
-function WriteMessage() {
+function WriteMessage({ sendData }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const content = event.target.elements.message.value;
+    sendData(content, "message");
+    event.target.reset();
+  }
+
   return (
     <div className={writeMessage}>
-      <form action="" id="sendMessageForm">
+      <form id="sendMessageForm" onSubmit={handleSubmit}>
         <label for="txtMessage" aria-label="Recieve message" />
         <input
           className={writeMessageInputText}
           type="text"
           id="txtMessage"
+          name="message"
           placeholder="Send message to #general"
           autocomplete="off"
         />
