@@ -68,7 +68,7 @@ function App({ url = "ws://localhost:4000", app, setApp }) {
       <AppName />
       <Header />
       <Channels currentUser={app.currentUser} />
-      <ListMessages messages={messages} />
+      <ListMessages currentUser={app.currentUser} />
       <NewMessage sendData={sendData} />
     </div>
   );

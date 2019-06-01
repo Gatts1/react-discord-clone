@@ -4,7 +4,7 @@ import App from "./App";
 import Login from "./Login/index";
 import { useLocalStorage } from "./utils/hooks";
 import { newAppObject } from "./utils/storage";
-import "./utils/fakeData"; // load fake data, remove when pass to production
+// import "./utils/fakeData"; // load fake data, remove when pass to production
 
 function Index() {
   const [user, setUser] = useState(null);

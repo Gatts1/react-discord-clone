@@ -24,7 +24,7 @@ const svg = css`
   height: 18px;
 `;
 
-function BlockNotification({ className }) {
+function BlockNotification({ className, currentUser }) {
   return (
     <>
       <li className={`${container} ${className}`}>
@@ -32,7 +32,7 @@ function BlockNotification({ className }) {
           <use xlinkHref="#arrow-right" />
         </svg>
         <span className={message}>
-          Un <User size="16px" /> salvaje apareció.
+          Un <User size="16px">{currentUser.username}</User> salvaje apareció.
         </span>
         <Date />
       </li>
