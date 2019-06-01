@@ -47,6 +47,7 @@ function ListMessages({ messages, currentUser, sendData }) {
                 key={message.id}
                 className={bTop}
                 message={message}
+                currentUser={currentUser}
               />
             );
           })}
