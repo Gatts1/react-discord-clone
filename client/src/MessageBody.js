@@ -16,7 +16,7 @@ const ul = css`
   list-style: none;
 `;
 
-function MessageBody() {
+function MessageBody({ content }) {
   return (
     <>
       <div className={container}>
@@ -25,11 +25,7 @@ function MessageBody() {
             <User size="16px" />
             <Date />
           </li>
-          <Message />
-          <Message />
-          <Message />
-          <Message />
-          <Message />
+          <Message content={content} />
         </ul>
       </div>
     </>
