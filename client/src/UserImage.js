@@ -2,11 +2,7 @@
 import React from "react";
 import { css } from "emotion";
 
-const container = css`
-  position: relative;
-  width: 45px;
-  height: 45px;
-`;
+import Dot from "./Dot";
 
 const img = css`
   height: 100%;
@@ -16,10 +12,17 @@ const img = css`
   border-radius: 50%;
 `;
 
-function UserImage() {
+function UserImage({ size, state, hasConnected }) {
+  const container = css`
+    position: relative;
+    width: ${size};
+    height: ${size};
+  `;
+
   return (
     <>
-      <div className={container}>
+      <div className={`${container} ${size}`}>
+        {state && <Dot hasConnected />}
         <img
           className={img}
           src="https://discordapp.com/assets/0e291f67c9274a1abdddeb3fd919cbaa.png"

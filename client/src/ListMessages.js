@@ -15,19 +15,6 @@ const ul = css`
   list-style: none;
 `;
 
-const scrollbar = css`
-  overflow-y: scroll;
-  height: calc(100vh - 66px - 48px - 5px);
-  &::-webkit-scrollbar {
-    width: 10px;
-    margin-left: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 50px;
-    background-color: #202225;
-  }
-`;
-
 const bTop = css`
   border-top: 1px solid hsla(0, 0%, 100%, 0.06);
 `;
@@ -46,7 +33,7 @@ function ListMessages({ messages, sendData }) {
           <BlockDate />
           <BlockNotification className={bTop} />
           <BlockMessage className={bTop} /> */}
-          {messages.map((message) => (
+          {messages.map(message => (
             <li>{message.content}</li>
           ))}
         </ul>

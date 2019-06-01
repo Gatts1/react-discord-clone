@@ -1,15 +1,22 @@
 import React from "react";
 import { css } from "emotion";
 
-const className = css`
+import ChannelList from "./ChannelsList";
+import ChannelUser from "./ChannelUser";
+
+const container = css`
   grid-area: channels;
-  background-color: peru;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #2f3136;
 `;
 
 function Channels() {
   return (
-    <section className={className}>
-      <div>Channels</div>
+    <section className={container}>
+      <ChannelList />
+      <ChannelUser />
     </section>
   );
 }
