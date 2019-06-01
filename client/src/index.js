@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import App from './App';
-import Login from './Login/index';
+import React, { useState, useEffect } from "react";
+import { render } from "react-dom";
+import App from "./App";
+import Login from "./Login/index";
+import { newAppObject } from "./utils/storage";
+import "./utils/fakeData"; // load fake data, remove when pass to production
 
 function Index() {
-  const [user, setUser] = useLocalStorage('user', null);
+  const [user, setUser] = useState(null);
+
+  // this run once when component is render first time
+  useEffect(() => {
+    const app = JSON.parse(localStorage.getItem("app")) || null;
+    if (app) {
+      setUser(app.currentUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(user);
+    newAppObject(user);
+  }, [user]);
 
   if (user) {
     return <App />;
@@ -12,30 +27,5 @@ function Index() {
   return <Login setUser={setUser} />;
 }
 
-function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.log(error);
-      return initialValue;
-    }
-  });
-
-  const setValue = (value) => {
-    try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  return [storedValue, setValue];
-}
-
-const $root = document.getElementById('root');
+const $root = document.getElementById("root");
 render(<Index />, $root);

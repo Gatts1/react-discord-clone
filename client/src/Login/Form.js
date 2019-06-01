@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { css } from 'emotion';
+import { css } from "emotion";
 
 const Form = css`
   .container-img {
@@ -82,7 +82,7 @@ function Login({ setUser }) {
       <span className={username}>USERNAME</span>
       <br />
       <input
-        class={inputUsername}
+        className={inputUsername}
         type="text"
         id="txtUsername"
         name="username"
@@ -92,7 +92,7 @@ function Login({ setUser }) {
       <br />
       <label htmlFor="button-login" aria-label="Submit login" />
       <input
-        class={ButtonLogin}
+        className={ButtonLogin}
         type="submit"
         id="btnContinue"
         value="Continue"
