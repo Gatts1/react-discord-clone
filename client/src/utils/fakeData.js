@@ -30,7 +30,7 @@ const users = [
 
 const channels = [
   {
-    id: 1,
+    id: 1000000000000,
     creationDate: new Date("2019-05-20T07:00"),
     name: "general",
     author: { id: 1, username: "admin" },

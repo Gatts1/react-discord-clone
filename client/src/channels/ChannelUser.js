@@ -2,8 +2,8 @@
 import React from "react";
 import { css } from "emotion";
 
-import UserImage from "./UserImage";
-import User from "./User";
+import UserImage from "../UserImage";
+import User from "../User";
 
 const container = css`
   display: flex;

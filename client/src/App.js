@@ -3,7 +3,7 @@ import { css } from "emotion";
 
 import { useLocalStorage } from "./utils/hooks";
 import AppName from "./AppName";
-import Channels from "./Channels";
+import Channels from "./channels/Channels";
 import Header from "./Header";
 import ListMessages from "./ListMessages";
 import NewMessage from "./NewMessage";
@@ -50,6 +50,10 @@ function App({ url = "ws://localhost:4000", currentUser }) {
   }, [channelId, connected]);
 
   React.useEffect(() => {
+    // here send data when channel is created
+  }, [channels]);
+
+  React.useEffect(() => {
     if (ws.current) {
       ws.current.onopen = () => {
         console.log("open");
@@ -89,7 +93,12 @@ function App({ url = "ws://localhost:4000", currentUser }) {
     <div className={container}>
       <AppName />
       <Header />
-      <Channels currentUser={currentUser} />
+      <Channels
+        currentUser={currentUser}
+        setChannels={setChannels}
+        channels={channels}
+        channelId={channelId}
+      />
       <ListMessages
         messages={channelActive().messages}
         currentUser={currentUser}
