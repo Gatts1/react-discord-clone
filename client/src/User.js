@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-function User({ size, currentUser }) {
+function User({ size, children }) {
   return (
     <>
       <span
@@ -10,7 +10,7 @@ function User({ size, currentUser }) {
           color: #fff;
         `}
       >
-        {currentUser && currentUser.username}
+        {children}
       </span>
     </>
   );

@@ -22,7 +22,7 @@ function MessageBody({ content, currentUser }) {
       <div className={container}>
         <ul className={ul}>
           <li>
-            <User size="16px" currentUser={currentUser} />
+            <User size="16px">{currentUser.username}</User>
             <Date />
           </li>
           <Message content={content} />
