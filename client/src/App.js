@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
+import { useLocalStorage } from "./utils/hooks";
 import AppName from "./AppName";
 import Channels from "./Channels";
 import Header from "./Header";
@@ -21,10 +22,12 @@ const container = css`
     "channels new-message";
 `;
 
-function App({ url = "ws://localhost:4000", app, setApp }) {
+function App({ url = "ws://localhost:4000", currentUser }) {
   const ws = React.useRef(null);
-  const [messages, setMessages] = React.useState([]);
+  const [channelId, setChannelId] = React.useState(1000000000000); // for channel active
   const [connected, setConnected] = React.useState(false);
+  const [channels, setChannels] = useLocalStorage("channels", []); // list channels
+  const [users, setUsers] = useLocalStorage("users", []); // list users
 
   React.useEffect(() => {
     const server = new WebSocket(url);
@@ -34,6 +37,17 @@ function App({ url = "ws://localhost:4000", app, setApp }) {
       server.close();
     };
   }, [url]);
+
+  React.useEffect(() => {
+    if (connected && !channelActive().joined) {
+      sendData(`${currentUser.username} joined`);
+      const updateChannels = channels.map(channel => {
+        if (channel.id === channelId) channel.joined = true;
+        return channel;
+      });
+      setChannels(updateChannels);
+    }
+  }, [channelId, connected]);
 
   React.useEffect(() => {
     if (ws.current) {
@@ -46,9 +60,13 @@ function App({ url = "ws://localhost:4000", app, setApp }) {
         setConnected(false);
       };
       ws.current.onmessage = ({ data }) => {
-        setMessages(state => {
-          return [...state, JSON.parse(data)];
+        const updateChannels = channels.map(channel => {
+          if (channel.id === channelId) {
+            channel.messages.push(JSON.parse(data));
+          }
+          return channel;
         });
+        setChannels(updateChannels);
       };
     }
   }, [ws.current]);
@@ -63,12 +81,19 @@ function App({ url = "ws://localhost:4000", app, setApp }) {
     );
   }
 
+  function channelActive() {
+    return channels.find(channel => channel.id === channelId);
+  }
+
   return (
     <div className={container}>
       <AppName />
       <Header />
-      <Channels currentUser={app.currentUser} />
-      <ListMessages currentUser={app.currentUser} />
+      <Channels currentUser={currentUser} />
+      <ListMessages
+        messages={channelActive().messages}
+        currentUser={currentUser}
+      />
       <NewMessage sendData={sendData} />
     </div>
   );

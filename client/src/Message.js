@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-function Message() {
+function Message({ content }) {
   return (
     <>
       <li
@@ -9,7 +9,7 @@ function Message() {
           font-size: 14px;
         `}
       >
-        Asi te queria encontrar!
+        {content}
       </li>
     </>
   );

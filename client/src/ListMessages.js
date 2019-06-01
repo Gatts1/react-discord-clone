@@ -25,7 +25,7 @@ function ListMessages({ messages, currentUser, sendData }) {
       <Scrollbar height="calc(100vh - 66px - 48px - 5px)">
         <ul className={ul}>
           {/* <BlockDate /> */}
-          <BlockNotification className={bTop} currentUser={currentUser} />
+          {/* <BlockNotification className={bTop} currentUser={currentUser} /> */}
           {/* <BlockMessage className={bTop} />
           <BlockDate />
           <BlockNotification className={bTop} />
@@ -33,9 +33,23 @@ function ListMessages({ messages, currentUser, sendData }) {
           <BlockDate />
           <BlockNotification className={bTop} />
           <BlockMessage className={bTop} /> */}
-          {/* {messages.map(message => (
-            <li>{message.content}</li>
-          ))} */}
+          {messages.map(message => {
+            if (message.content.includes("joined"))
+              return (
+                <BlockNotification
+                  key={message.id}
+                  className={bTop}
+                  currentUser={currentUser}
+                />
+              );
+            return (
+              <BlockMessage
+                key={message.id}
+                className={bTop}
+                message={message}
+              />
+            );
+          })}
         </ul>
       </Scrollbar>
     </section>
