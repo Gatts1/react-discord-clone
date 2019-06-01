@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { css } from 'emotion';
+import { css } from "emotion";
 
 const Form = css`
   .container-img {
@@ -70,22 +70,29 @@ const ButtonLogin = css`
   cursor: pointer;
 `;
 
-function Login() {
+function Login({ setUser }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(event.target.elements.username.value);
+    setUser(event.target.elements.username.value);
+  }
+
   return (
-    <form className={Form}>
+    <form className={Form} onSubmit={handleSubmit}>
       <span className={username}>USERNAME</span>
       <br />
       <input
-        class={inputUsername}
+        className={inputUsername}
         type="text"
         id="txtUsername"
+        name="username"
         placeholder="How do you want to be called?"
         title="You can change this later."
       />
       <br />
       <label htmlFor="button-login" aria-label="Submit login" />
       <input
-        class={ButtonLogin}
+        className={ButtonLogin}
         type="submit"
         id="btnContinue"
         value="Continue"

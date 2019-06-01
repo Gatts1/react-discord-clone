@@ -16,6 +16,10 @@ function Channels({ currentUser, sendData }) {
   return (
     <section className={container}>
       <ChannelList sendData={sendData} />
+function Channels({ currentUser }) {
+  return (
+    <section className={container}>
+      <ChannelList />
       <ChannelUser currentUser={currentUser} />
     </section>
   );

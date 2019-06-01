@@ -5,6 +5,7 @@ import MessageInput from "./MessageInput";
 
 const container = css`
   padding: 10px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.06);
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   background-color: #36393f;
 `;

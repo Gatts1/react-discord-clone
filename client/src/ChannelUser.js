@@ -56,7 +56,7 @@ const userId = css`
   color: #c8cacb;
 `;
 
-function ChannelUser() {
+function ChannelUser({ currentUser }) {
   return (
     <>
       <div className={container}>
@@ -65,7 +65,7 @@ function ChannelUser() {
         </div>
         <div className={containerData}>
           <div className={dataUser}>
-            <User size="14px" />
+            <User size="14px">{currentUser.username}</User>
             <span className={userId}>#1388</span>
           </div>
           <div>

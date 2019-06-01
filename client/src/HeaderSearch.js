@@ -35,14 +35,14 @@ function HeaderSearch() {
   return (
     <div className={container}>
       <form action="">
-        <label for="input-search" aria-label="add search" />
+        <label htmlFor="input-search" aria-label="add search" />
         <input
           className={inputSearch}
           type="text"
           placeholder="Search"
           title="You can change this later."
         />
-        <label for="submit_search" aria-label="Submit search" />
+        <label htmlFor="submit_search" aria-label="Submit search" />
         <input hidden type="submit" />
       </form>
 
