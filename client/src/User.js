@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-function User({ size, children }) {
+function User({ size, currentUser }) {
   return (
     <>
       <span
