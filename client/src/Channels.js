@@ -1,9 +1,10 @@
 import React from "react";
 import { css } from "emotion";
 
-// import ChannelUser from "./"
+import ChannelList from "./ChannelsList";
+import ChannelUser from "./ChannelUser";
 
-const className = css`
+const container = css`
   grid-area: channels;
   display: flex;
   flex-direction: column;
@@ -13,9 +14,9 @@ const className = css`
 
 function Channels() {
   return (
-    <section className={className}>
-      <div>Channels</div>
-      <Channels />
+    <section className={container}>
+      <ChannelList />
+      <ChannelUser />
     </section>
   );
 }
