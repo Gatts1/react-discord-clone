@@ -21,19 +21,35 @@ const input = css`
   }
 `;
 
-function NewChannel({ error }) {
+const hiddenSubmit = css`
+  display: none;
+`;
+
+function NewChannel({ sendData }) {
+  console.log(sendData);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const content = event.target.elements.channel.value;
+    sendData(content, "channel");
+    event.target.reset();
+  }
+
   return (
     <>
-      <form className={container}>
-        <label for="add-channel" aria-label="add new channel" />
+      <form className={container} onSubmit={handleSubmit}>
+        <label htmlFor="add-channel" aria-label="add new channel" />
         <input
           className={input}
           type="text"
-          name="newChannelName"
+          name="channel"
           placeholder="New channel"
+          autocomplete="off"
         />
+        <input type="submit" value="Send" class={hiddenSubmit} />
       </form>
-      {error && <Error>This channel is duplicated</Error>}
+
+      {/* {error && <Error>This channel is duplicated</Error>} */}
     </>
   );
 }

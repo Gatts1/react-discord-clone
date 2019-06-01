@@ -10,13 +10,13 @@ const ul = css`
   list-style: none;
 `;
 
-function ChannelBody() {
+function ChannelBody({ sendData }) {
   return (
     <div>
       <ul className={ul}>
         <List hasActive>general</List>
         <List>Able</List>
-        <NewChannel />
+        <NewChannel sendData={sendData} />
       </ul>
     </div>
   );
