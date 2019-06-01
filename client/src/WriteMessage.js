@@ -28,20 +28,20 @@ function WriteMessage({ sendData }) {
 
   return (
     <div className={writeMessage}>
-      <form onSubmit={handleSubmit}>
-        <label for="txtMessage" aria-label="Recieve message" />
+      <form id="sendMessageForm" onSubmit={handleSubmit}>
+        <label htmlFor="txtMessage" aria-label="Recieve message" />
         <input
           className={writeMessageInputText}
           type="text"
           name="message"
           placeholder="Send message to #general"
-          autocomplete="off"
+          autoComplete="off"
         />
         <br />
         <input
           type="submit"
           value="Send"
-          class={css`
+          className={css`
             display: none;
           `}
         />

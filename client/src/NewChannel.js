@@ -25,7 +25,7 @@ function NewChannel({ error }) {
   return (
     <>
       <form className={container}>
-        <label for="add-channel" aria-label="add new channel" />
+        <label htmlFor="add-channel" aria-label="add new channel" />
         <input
           className={input}
           type="text"

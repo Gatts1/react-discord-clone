@@ -22,7 +22,7 @@ const svg = css`
     height: 28px;
     fill: #8e9297;
   }
-  :first-child {
+  :first-of-type {
     display: none;
   }
 `;

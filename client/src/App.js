@@ -21,7 +21,7 @@ const container = css`
     "channels new-message";
 `;
 
-function App({ url = "ws://localhost:4000" }) {
+function App({ url = "ws://localhost:4000", app, setApp }) {
   const ws = React.useRef(null);
   const [messages, setMessages] = React.useState([]);
   const [connected, setConnected] = React.useState(false);
@@ -67,7 +67,7 @@ function App({ url = "ws://localhost:4000" }) {
     <div className={container}>
       <AppName />
       <Header />
-      <Channels />
+      <Channels currentUser={app.currentUser} />
       <ListMessages messages={messages} />
       <NewMessage sendData={sendData} />
     </div>
