@@ -15,7 +15,7 @@ const container = css`
   }
 `;
 
-function NewChannel({ children }) {
+function Error({ children }) {
   return (
     <>
       <span className={container}>
@@ -28,4 +28,4 @@ function NewChannel({ children }) {
   );
 }
 
-export default NewChannel;
+export default Error;
