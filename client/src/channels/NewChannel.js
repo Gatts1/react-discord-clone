@@ -25,13 +25,22 @@ const hiddenSubmit = css`
   display: none;
 `;
 
-function NewChannel({ sendData }) {
-  console.log(sendData);
-
+function NewChannel({ setChannels, channels, currentUser }) {
   function handleSubmit(event) {
     event.preventDefault();
-    const content = event.target.elements.channel.value;
-    sendData(content, "channel");
+    const channel = event.target.elements.channel.value;
+    setChannels([
+      ...channels,
+      {
+        id: Date.now(),
+        creationDate: new Date().toLocaleString(),
+        name: channel,
+        author: currentUser.name,
+        joined: false,
+        visibility: false,
+        messages: []
+      }
+    ]);
     event.target.reset();
   }
 
@@ -44,9 +53,9 @@ function NewChannel({ sendData }) {
           type="text"
           name="channel"
           placeholder="New channel"
-          autocomplete="off"
+          autoComplete="off"
         />
-        <input type="submit" value="Send" class={hiddenSubmit} />
+        <input type="submit" value="Send" className={hiddenSubmit} />
       </form>
 
       {/* {error && <Error>This channel is duplicated</Error>} */}

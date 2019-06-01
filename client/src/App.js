@@ -50,6 +50,10 @@ function App({ url = "ws://localhost:4000", currentUser }) {
   }, [channelId, connected]);
 
   React.useEffect(() => {
+    // here send data when channel is created
+  }, [channels]);
+
+  React.useEffect(() => {
     if (ws.current) {
       ws.current.onopen = () => {
         console.log("open");
@@ -91,7 +95,12 @@ function App({ url = "ws://localhost:4000", currentUser }) {
       <Header />
       {/* <Channels currentUser={app.currentUser} sendData={sendData} /> */}
       {/* <ListMessages messages={messages} /> */}
-      <Channels currentUser={currentUser} />
+      <Channels
+        currentUser={currentUser}
+        setChannels={setChannels}
+        channels={channels}
+        channelId={channelId}
+      />
       <ListMessages
         messages={channelActive().messages}
         currentUser={currentUser}

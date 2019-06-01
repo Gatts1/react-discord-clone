@@ -12,10 +12,15 @@ const container = css`
   background-color: #2f3136;
 `;
 
-function Channels({ currentUser, sendData }) {
+function Channels({ currentUser, channels, channelId, setChannels }) {
   return (
     <section className={container}>
-      <ChannelList sendData={sendData} />
+      <ChannelList
+        channels={channels}
+        channelId={channelId}
+        setChannels={setChannels}
+        currentUser={currentUser}
+      />
       <ChannelUser currentUser={currentUser} />
     </section>
   );
