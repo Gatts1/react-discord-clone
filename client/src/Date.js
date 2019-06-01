@@ -1,6 +1,5 @@
 import React from "react";
 import { css } from "emotion";
-// import { jsx } from "@emotion/core";
 
 const container = css`
   color: rgb(255, 255, 250);

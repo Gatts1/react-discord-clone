@@ -93,38 +93,6 @@ function List({ hasActive, children }) {
           </svg>
         </div>
       </li>
-      {/* <li>
-        <div class="channel-item">
-          <svg>
-            <use xlinkHref="#hashtag" />
-          </svg>
-          <span>Able</span>
-        </div>
-        <div class="channel-item-option">
-          <svg>
-            <use xlinkHref="#people-plus" />
-          </svg>
-          <svg>
-            <use xlinkHref="#setting" />
-          </svg>
-        </div>
-      </li>
-      <li>
-        <div class="channel-item">
-          <svg>
-            <use xlinkHref="#hashtag" />
-          </svg>
-          <span>Codeble</span>
-        </div>
-        <div class="channel-item-option">
-          <svg>
-            <use xlinkHref="#people-plus" />
-          </svg>
-          <svg>
-            <use xlinkHref="#setting" />
-          </svg>
-        </div>
-      </li> */}
     </>
   );
 }
