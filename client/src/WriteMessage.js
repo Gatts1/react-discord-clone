@@ -2,7 +2,6 @@ import React from "react";
 import { css } from "emotion";
 
 const writeMessage = css`
-  display: flex;
   width: 100%;
 `;
 
@@ -14,10 +13,9 @@ const writeMessageInputText = css`
   color: #f6f6f7;
   border-left: 1px solid #55585d;
   background-color: rgb(72, 75, 81);
-`;
-
-const hiddenSubmit = css`
-  display: none;
+  :focus {
+    outline: none;
+  }
 `;
 
 function WriteMessage({ sendData }) {
@@ -30,18 +28,23 @@ function WriteMessage({ sendData }) {
 
   return (
     <div className={writeMessage}>
-      <form id="sendMessageForm" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label for="txtMessage" aria-label="Recieve message" />
         <input
           className={writeMessageInputText}
           type="text"
-          id="txtMessage"
           name="message"
           placeholder="Send message to #general"
           autocomplete="off"
         />
         <br />
-        <input type="submit" value="Send" class={hiddenSubmit} />
+        <input
+          type="submit"
+          value="Send"
+          class={css`
+            display: none;
+          `}
+        />
       </form>
     </div>
   );
