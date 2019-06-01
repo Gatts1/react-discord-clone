@@ -10,7 +10,7 @@ function User({ size, children }) {
           color: #fff;
         `}
       >
-        {children}
+        {currentUser.username}
       </span>
     </>
   );
