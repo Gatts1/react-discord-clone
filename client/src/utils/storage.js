@@ -26,7 +26,8 @@ function newAppObject(newUsername) {
       }
     ]
   };
-  localStorage.setItem("app", JSON.stringify(objApp));
+  
+  return objApp;
 }
 
 export { newAppObject };

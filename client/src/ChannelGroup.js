@@ -25,7 +25,7 @@ const headerName = css`
     cursor: pointer;
     color: #dcddde;
   }
-  svg:first-child {
+  svg:first-of-type {
     fill: #8e9297;
     width: 12px;
     height: 12px;
