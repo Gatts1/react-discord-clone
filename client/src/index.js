@@ -3,23 +3,50 @@ import { render } from "react-dom";
 import App from "./App";
 import Login from "./Login/index";
 import { useLocalStorage } from "./utils/hooks";
-import { newAppObject } from "./utils/storage";
 // import "./utils/fakeData"; // load fake data, remove when pass to production
 
 function Index() {
-  const [user, setUser] = useState(null);
-  const [app, setApp] = useLocalStorage("app", null);
+  const [username, setUsername] = useState("");
+  const [currentUser, setCurrentUser] = useLocalStorage("currentUser", null);
+  const [, setChannels] = useLocalStorage("channels", []);
+  const [, setUsers] = useLocalStorage("users", []);
 
   useEffect(() => {
-    if (user) {
-      setApp(newAppObject(user));
-    }
-  }, [user]);
+    if (username) {
+      const newId = Date.now();
+      setCurrentUser({
+        id: newId,
+        username: username,
+        creationDate: new Date().toLocaleString(),
+        state: "active"
+      });
 
-  if (app) {
-    return <App app={app} setApp={setApp} />;
+      setUsers([
+        {
+          id: newId,
+          username: username,
+          isActive: true
+        }
+      ]);
+
+      setChannels([
+        {
+          id: 1000000000000,
+          creationDate: null,
+          name: "general",
+          author: null,
+          joined: false,
+          visibility: true,
+          messages: []
+        }
+      ]);
+    }
+  }, [username]);
+
+  if (currentUser) {
+    return <App currentUser={currentUser} />;
   }
-  return <Login setUser={setUser} />;
+  return <Login setUser={setUsername} />;
 }
 
 const $root = document.getElementById("root");
