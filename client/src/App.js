@@ -93,8 +93,6 @@ function App({ url = "ws://localhost:4000", currentUser }) {
     <div className={container}>
       <AppName />
       <Header />
-      {/* <Channels currentUser={app.currentUser} sendData={sendData} /> */}
-      {/* <ListMessages messages={messages} /> */}
       <Channels
         currentUser={currentUser}
         setChannels={setChannels}
