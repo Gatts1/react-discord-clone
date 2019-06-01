@@ -10,7 +10,7 @@ function User({ size, currentUser }) {
           color: #fff;
         `}
       >
-        {currentUser.username}
+        {currentUser && currentUser.username}
       </span>
     </>
   );
