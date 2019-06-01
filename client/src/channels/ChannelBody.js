@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-import List from "./List";
+import List from "../List";
 import NewChannel from "./NewChannel";
 
 const ul = css`

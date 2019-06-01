@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-import Error from "./Error";
+import Error from "../Error";
 
 const container = css`
   padding: 5px;
