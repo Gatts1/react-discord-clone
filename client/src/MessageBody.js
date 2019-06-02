@@ -16,14 +16,14 @@ const ul = css`
   list-style: none;
 `;
 
-function MessageBody({ content, currentUser }) {
+function MessageBody({ content, currentUser, date }) {
   return (
     <>
       <div className={container}>
         <ul className={ul}>
           <li>
             <User size="16px">{currentUser.username}</User>
-            <Date />
+            <Date date={date} />
           </li>
           <Message content={content} />
         </ul>

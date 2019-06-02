@@ -24,7 +24,7 @@ const svg = css`
   height: 18px;
 `;
 
-function BlockNotification({ className, currentUser }) {
+function BlockNotification({ className, currentUser, date }) {
   return (
     <>
       <li className={`${container} ${className}`}>
@@ -34,7 +34,7 @@ function BlockNotification({ className, currentUser }) {
         <span className={message}>
           Un <User size="16px">{currentUser.username}</User> salvaje apareció.
         </span>
-        <Date />
+        <Date date={date} />
       </li>
     </>
   );

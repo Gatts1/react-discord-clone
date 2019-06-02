@@ -80,6 +80,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
       JSON.stringify({
         id: new Date().getTime(),
         content: content,
+        date: new Date(),
         type
       })
     );
