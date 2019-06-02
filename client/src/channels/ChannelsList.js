@@ -16,7 +16,13 @@ const container = css`
   padding: 0 20px 20px 20px;
 `;
 
-function ChannelsList({ setChannels, channels, channelId, currentUser }) {
+function ChannelsList({
+  setChannels,
+  channels,
+  channelId,
+  currentUser,
+  setChannelId
+}) {
   return (
     <div className={container}>
       <div>
@@ -24,7 +30,11 @@ function ChannelsList({ setChannels, channels, channelId, currentUser }) {
         <div>
           <ul className={ul}>
             {channels.map(channel => (
-              <List key={channel.id} hasActive={channelId === channel.id}>
+              <List
+                key={channel.id}
+                hasActive={channelId === channel.id}
+                onClick={() => setChannelId(channel.id)}
+              >
                 {channel.name}
               </List>
             ))}
