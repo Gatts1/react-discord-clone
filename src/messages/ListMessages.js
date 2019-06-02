@@ -47,7 +47,7 @@ function ListMessages({ messages, currentUser, data }) {
                   <BlockNotification
                     key={message.id}
                     className={bTop}
-                    currentUser={currentUser}
+                    author={message.author}
                     date={message.date}
                   />
                 </>
@@ -62,7 +62,7 @@ function ListMessages({ messages, currentUser, data }) {
                   key={message.id}
                   className={bTop}
                   message={message}
-                  currentUser={currentUser}
+                  author={message.author}
                 />
               </>
             );

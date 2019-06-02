@@ -12,14 +12,14 @@ const container = css`
   padding: 20px 0;
 `;
 
-function BlockMessage({ className, message, currentUser }) {
+function BlockMessage({ className, message, author }) {
   return (
     <>
       <li className={`${container} ${className}`}>
         <UserImage size="45px;" />
         <MessageBody
           content={message.content}
-          currentUser={currentUser}
+          author={author}
           date={message.date}
         />
       </li>
