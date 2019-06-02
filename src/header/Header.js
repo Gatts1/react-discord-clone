@@ -16,10 +16,10 @@ const container = css`
   padding: 10px;
 `;
 
-function Header() {
+function Header({ channelAct }) {
   return (
     <section className={container}>
-      <HeaderName />
+      <HeaderName channelAct={channelAct} />
       <HeaderOptions />
     </section>
   );
