@@ -1,15 +1,37 @@
 {
-  "name": "ws-server",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "PORT=4000 node index.js",
-    "client": "cd client && yarn start"
-  },
-  "proxy": "http://localhost:4000",
+  "name": "discord-clone",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "serve-handler": "^6.0.0",
-    "ws": "^7.0.0"
+    "ws": "^7.0.0",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.11",
+    "emotion": "^10.0.9",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "scripts": {
+    "serve": "PORT=4000 node index.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
