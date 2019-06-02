@@ -24,12 +24,12 @@ const hiddenSubmit = css`
 `;
 
 function NewChannel({ setChannels, channels, currentUser }) {
+  console.log(channels);
   function handleSubmit(event) {
     event.preventDefault();
     const channel = event.target.elements.channel.value;
-    var channelsLocal = JSON.parse(localStorage.channels);
 
-    if (channelsLocal.some(channelLocal => channelLocal.name === channel)) {
+    if (channels.some(channelLocal => channelLocal.name === channel)) {
       alert(`Channel ${channel} already exists`);
     } else {
       setChannels([
@@ -38,7 +38,7 @@ function NewChannel({ setChannels, channels, currentUser }) {
           id: Date.now(),
           creationDate: new Date().toLocaleString(),
           name: channel,
-          author: currentUser.name,
+          author: currentUser.username,
           joined: false,
           visibility: false,
           messages: []
