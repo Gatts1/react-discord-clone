@@ -99,6 +99,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
         setChannels={setChannels}
         channels={channels}
         channelId={channelId}
+        setChannelId={setChannelId}
       />
       <ListMessages
         messages={channelActive().messages}

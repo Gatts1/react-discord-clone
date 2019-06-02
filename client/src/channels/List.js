@@ -71,29 +71,27 @@ const activeChannel = css`
   }
 `;
 
-function List({ hasActive, children }) {
+function List({ hasActive, children, onClick }) {
   return (
-    <>
-      <li className={`${container} ${hasActive && active}`}>
-        <div className={channelItem}>
-          <svg>
-            <use xlinkHref="#hashtag" />
-          </svg>
-          <span className={hasActive && activeSpan}>{children}</span>
-        </div>
-        <div
-          className={`${channelItemOption} ${hasActive &&
-            activeChannel} channel-item-option`}
-        >
-          <svg className={hasActive && activeSvg}>
-            <use xlinkHref="#people-plus" />
-          </svg>
-          <svg className={hasActive && activeSvg}>
-            <use xlinkHref="#setting" />
-          </svg>
-        </div>
-      </li>
-    </>
+    <li className={`${container} ${hasActive && active}`} onClick={onClick}>
+      <div className={channelItem}>
+        <svg>
+          <use xlinkHref="#hashtag" />
+        </svg>
+        <span className={hasActive && activeSpan}>{children}</span>
+      </div>
+      <div
+        className={`${channelItemOption} ${hasActive &&
+          activeChannel} channel-item-option`}
+      >
+        <svg className={hasActive && activeSvg}>
+          <use xlinkHref="#people-plus" />
+        </svg>
+        <svg className={hasActive && activeSvg}>
+          <use xlinkHref="#setting" />
+        </svg>
+      </div>
+    </li>
   );
 }
 
