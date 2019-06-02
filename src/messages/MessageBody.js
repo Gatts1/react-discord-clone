@@ -2,8 +2,8 @@ import React from "react";
 import { css } from "emotion";
 // import { jsx } from "@emotion/core";
 
-import User from "./User";
-import Date from "./Date";
+import User from "../User";
+import Date from "../Date";
 import Message from "./Message";
 
 const container = css`
