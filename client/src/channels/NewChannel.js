@@ -1,8 +1,6 @@
 import React from "react";
 import { css } from "emotion";
 
-import Error from "../Error";
-
 const container = css`
   padding: 5px;
   font-size: 15px;
@@ -29,18 +27,24 @@ function NewChannel({ setChannels, channels, currentUser }) {
   function handleSubmit(event) {
     event.preventDefault();
     const channel = event.target.elements.channel.value;
-    setChannels([
-      ...channels,
-      {
-        id: Date.now(),
-        creationDate: new Date().toLocaleString(),
-        name: channel,
-        author: currentUser.name,
-        joined: false,
-        visibility: false,
-        messages: []
-      }
-    ]);
+
+    if (channels.some(channelLocal => channelLocal.name === channel)) {
+      alert(`Channel ${channel} already exists`);
+    } else {
+      setChannels([
+        ...channels,
+        {
+          id: Date.now(),
+          creationDate: new Date().toLocaleString(),
+          name: channel,
+          author: currentUser.username,
+          joined: false,
+          visibility: false,
+          messages: []
+        }
+      ]);
+    }
+
     event.target.reset();
   }
 
@@ -57,8 +61,6 @@ function NewChannel({ setChannels, channels, currentUser }) {
         />
         <input type="submit" value="Send" className={hiddenSubmit} />
       </form>
-
-      {/* {error && <Error>This channel is duplicated</Error>} */}
     </>
   );
 }
