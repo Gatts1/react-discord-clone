@@ -4,7 +4,7 @@ import { css } from "emotion";
 import { useLocalStorage } from "./utils/hooks";
 import AppName from "./AppName";
 import Channels from "./channels/Channels";
-import Header from "./Header";
+import Header from "./header/Header";
 import ListMessages from "./messages/ListMessages";
 import NewMessage from "./messages/NewMessage";
 
