@@ -82,6 +82,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
         id: new Date().getTime(),
         content: content,
         date: new Date(),
+        author: { id: currentUser.id, username: currentUser.username },
         channelId,
         type
       })
