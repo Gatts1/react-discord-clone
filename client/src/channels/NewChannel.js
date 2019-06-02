@@ -24,7 +24,6 @@ const hiddenSubmit = css`
 `;
 
 function NewChannel({ setChannels, channels, currentUser }) {
-  console.log(channels);
   function handleSubmit(event) {
     event.preventDefault();
     const channel = event.target.elements.channel.value;
