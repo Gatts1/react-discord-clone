@@ -95,7 +95,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
   return (
     <div className={container}>
       <AppName />
-      <Header />
+      <Header channelAct={channelActive()} />
       <Channels
         currentUser={currentUser}
         setChannels={setChannels}
