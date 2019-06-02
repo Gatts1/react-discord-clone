@@ -4,6 +4,7 @@ import { css } from "emotion";
 import ChannelGroup from "./ChannelGroup";
 import List from "./List";
 import NewChannel from "./NewChannel";
+import Scrollbar from "../messages/Scrollbar";
 
 const ul = css`
   margin: 5px 0;
@@ -25,27 +26,29 @@ function ChannelsList({
 }) {
   return (
     <div className={container}>
-      <div>
-        <ChannelGroup>TEXT CHANNELS</ChannelGroup>
+      <Scrollbar height="calc(100vh - 66px - 48px - 5px)">
         <div>
-          <ul className={ul}>
-            {channels.map(channel => (
-              <List
-                key={channel.id}
-                hasActive={channelId === channel.id}
-                onClick={() => setChannelId(channel.id)}
-              >
-                {channel.name}
-              </List>
-            ))}
-            <NewChannel
-              setChannels={setChannels}
-              channels={channels}
-              currentUser={currentUser}
-            />
-          </ul>
+          <ChannelGroup>TEXT CHANNELS</ChannelGroup>
+          <div>
+            <ul className={ul}>
+              {channels.map(channel => (
+                <List
+                  key={channel.id}
+                  hasActive={channelId === channel.id}
+                  onClick={() => setChannelId(channel.id)}
+                >
+                  {channel.name}
+                </List>
+              ))}
+              <NewChannel
+                setChannels={setChannels}
+                channels={channels}
+                currentUser={currentUser}
+              />
+            </ul>
+          </div>
         </div>
-      </div>
+      </Scrollbar>
     </div>
   );
 }
