@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "emotion";
 
 import MessageInput from "./MessageInput";
+import SendNotification from "./SendNotification";
 
 const container = css`
   padding: 10px;
@@ -10,10 +11,11 @@ const container = css`
   background-color: #36393f;
 `;
 
-function NewMessage({ sendData }) {
+function NewMessage({ sendData, currentUser }) {
   return (
     <section className={container}>
       <MessageInput sendData={sendData} />
+      <SendNotification currentUser={currentUser} />
     </section>
   );
 }

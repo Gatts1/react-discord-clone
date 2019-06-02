@@ -7,6 +7,7 @@ import Channels from "./channels/Channels";
 import Header from "./Header";
 import ListMessages from "./ListMessages";
 import NewMessage from "./NewMessage";
+import SendNotification from "./SendNotification";
 
 const container = css`
   display: grid;
@@ -28,6 +29,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
   const [connected, setConnected] = React.useState(false);
   const [channels, setChannels] = useLocalStorage("channels", []); // list channels
   const [users, setUsers] = useLocalStorage("users", []); // list users
+  let [stateNotification, setStateNotification] = React.useState(false);
 
   React.useEffect(() => {
     const server = new WebSocket(url);
@@ -76,6 +78,22 @@ function App({ url = "ws://localhost:4000", currentUser }) {
     }
   }, [ws.current]);
 
+  // async function askNotification() {
+  //   stateNotification = Notification.permission;
+  //   switch (stateNotification) {
+  //     case "granted": {
+  //       return;
+  //     }
+  //     case "denied": {
+  //       console.log("Doesn't has permissions");
+  //       return;
+  //     }
+  //     case "default": {
+  //       stateNotification = await Notification.requestPermission();
+  //     }
+  //   }
+  // }
+
   function sendData(content, type = "message") {
     ws.current.send(
       JSON.stringify({
@@ -107,7 +125,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
         messages={channelActive().messages}
         currentUser={currentUser}
       />
-      <NewMessage sendData={sendData} />
+      <NewMessage sendData={sendData} SendNotification={SendNotification} />
     </div>
   );
 }
