@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "emotion";
 
 import UserImage from "./UserImage";
-import MessageBody from "./MessageBody";
+import MessageBody from "./messages/MessageBody";
 
 const container = css`
   display: flex;

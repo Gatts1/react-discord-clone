@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "emotion";
-import BlockDate from "./BlockDate";
-import BlockNotification from "./BlockNotification";
-import BlockMessage from "./BlockMessage";
+import BlockDate from "../BlockDate";
+import BlockNotification from "../BlockNotification";
+import BlockMessage from "../BlockMessage";
 import Scrollbar from "./Scrollbar";
-import { compareDate, separatorDate } from "./utils/date";
+import { compareDate, separatorDate } from "../utils/date";
 
 const container = css`
   grid-area: list-message;
