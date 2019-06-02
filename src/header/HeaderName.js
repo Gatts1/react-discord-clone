@@ -21,14 +21,14 @@ const svg = css`
   fill: #72767d;
 `;
 
-function HeaderName() {
+function HeaderName({ channelAct }) {
   return (
     <div className={container}>
       {/* <svg id="btnMenu" onclick="showLeft()"><use xlink:href="#menu"></svg> */}
       <svg className={svg}>
         <use xlinkHref="#hashtag" />
       </svg>
-      <span className={name}>general</span>
+      <span className={name}>{channelAct.name}</span>
     </div>
   );
 }
