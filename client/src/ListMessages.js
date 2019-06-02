@@ -4,6 +4,7 @@ import BlockDate from "./BlockDate";
 import BlockNotification from "./BlockNotification";
 import BlockMessage from "./BlockMessage";
 import Scrollbar from "./Scrollbar";
+import { compareDate, separatorDate } from "./utils/date";
 
 const container = css`
   grid-area: list-message;
@@ -23,31 +24,47 @@ function ListMessages({ messages, currentUser, data }) {
     <section className={container}>
       <Scrollbar height="calc(100vh - 66px - 48px - 5px)">
         <ul className={ul}>
-          {/* <BlockDate /> */}
-          {/* <BlockNotification className={bTop} currentUser={currentUser} /> */}
           {/* <BlockMessage className={bTop} />
           <BlockDate />
-          <BlockNotification className={bTop} />
+          <BlockNotification
+            key={message.id}
+            className={bTop}
+            currentUser={currentUser}
+          />
           <BlockMessage className={bTop} />
           <BlockDate />
-          <BlockNotification className={bTop} />
+          <BlockNotification
+            key={message.id}
+            className={bTop}
+            currentUser={currentUser}
+          />
           <BlockMessage className={bTop} /> */}
-          {messages.map(message => {
-            if (message.content.includes("joined"))
+          {messages.map((message, index) => {
+            if (index === 0) {
               return (
-                <BlockNotification
+                <>
+                  <BlockDate date={separatorDate(message.date)} />
+                  <BlockNotification
+                    key={message.id}
+                    className={bTop}
+                    currentUser={currentUser}
+                    date={message.date}
+                  />
+                </>
+              );
+            }
+            return (
+              <>
+                {compareDate(messages[index - 1].date, message.date) && (
+                  <BlockDate date={separatorDate(message.date)} />
+                )}
+                <BlockMessage
                   key={message.id}
                   className={bTop}
+                  message={message}
                   currentUser={currentUser}
                 />
-              );
-            return (
-              <BlockMessage
-                key={message.id}
-                className={bTop}
-                message={message}
-                currentUser={currentUser}
-              />
+              </>
             );
           })}
         </ul>

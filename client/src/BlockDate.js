@@ -25,13 +25,11 @@ const lineDate = css`
   text-align: center;
 `;
 
-function BlockDate() {
+function BlockDate({ date }) {
   return (
-    <>
-      <li className={container}>
-        <span className={lineDate}>23 de mayo de 2019</span>
-      </li>
-    </>
+    <li className={container}>
+      <span className={lineDate}>{date}</span>
+    </li>
   );
 }
 

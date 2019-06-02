@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "emotion";
+import { formatAMPM } from "./utils/date";
 
 const container = css`
   color: rgb(255, 255, 250);
@@ -8,12 +9,8 @@ const container = css`
   padding-top: 3px;
 `;
 
-function Date() {
-  return (
-    <>
-      <span className={container}>hoy a las 14:51</span>
-    </>
-  );
+function Date({ date }) {
+  return <span className={container}>{formatAMPM(date)} </span>;
 }
 
 export default Date;

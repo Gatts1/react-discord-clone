@@ -17,7 +17,11 @@ function BlockMessage({ className, message, currentUser }) {
     <>
       <li className={`${container} ${className}`}>
         <UserImage size="45px;" />
-        <MessageBody content={message.content} currentUser={currentUser} />
+        <MessageBody
+          content={message.content}
+          currentUser={currentUser}
+          date={message.date}
+        />
       </li>
     </>
   );
