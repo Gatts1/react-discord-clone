@@ -42,7 +42,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
     if (connected && !channelActive().joined) {
       sendData(`${currentUser.username} joined`);
       const updateChannels = channels.map(channel => {
-        if (channel.id === channelId) channel.joined = true;
+        if (channel.id === channelId) return { ...channel, joined: true };
         return channel;
       });
       setChannels(updateChannels);
@@ -74,7 +74,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
         setChannels(updateChannels);
       };
     }
-  }, [ws.current]);
+  }, [ws.current, setChannels, channels]);
 
   function sendData(content, type = "message") {
     ws.current.send(
