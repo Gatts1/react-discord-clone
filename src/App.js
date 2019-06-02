@@ -64,9 +64,10 @@ function App({ url = "ws://localhost:4000", currentUser }) {
         setConnected(false);
       };
       ws.current.onmessage = ({ data }) => {
+        const parseData = JSON.parse(data);
         const updateChannels = channels.map(channel => {
-          if (channel.id === channelId) {
-            channel.messages.push(JSON.parse(data));
+          if (channel.id === parseData.channelId) {
+            channel.messages.push(parseData);
           }
           return channel;
         });
@@ -81,6 +82,7 @@ function App({ url = "ws://localhost:4000", currentUser }) {
         id: new Date().getTime(),
         content: content,
         date: new Date(),
+        channelId,
         type
       })
     );
